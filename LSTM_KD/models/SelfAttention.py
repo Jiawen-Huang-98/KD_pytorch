@@ -1,4 +1,4 @@
-from models.BasicModule import *
+from LSTM_KD.models.BasicModule import *
 class SelfAttention(BasicModule):
     def __init__(self, input_hidden_dim):
         super().__init__()

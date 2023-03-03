@@ -1,4 +1,4 @@
-from models.BasicModule import *
+from LSTM_KD.models.BasicModule import *
 import torch.nn.functional as F
 
 

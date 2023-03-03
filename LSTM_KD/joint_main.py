@@ -1,6 +1,4 @@
-from utils import *
-from utils import *
-from models.LSTMSelfAttention import *
+from LSTM_KD.utils import *
 from mydatasets import *
 import sys
 

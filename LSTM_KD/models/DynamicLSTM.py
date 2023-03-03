@@ -1,5 +1,4 @@
-from models.__init__ import *
-from models.BasicModule import *
+from LSTM_KD.models.BasicModule import *
 class DynamicLSTM(nn.Module):
     def __init__(self, input_dim, output_dim,
                  num_layers=1, bidirectional=True,

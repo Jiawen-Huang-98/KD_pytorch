@@ -1,10 +1,10 @@
 #coding=utf8
 
-from models.BasicModule import *
+from LSTM_KD.models.BasicModule import *
 # from models.__init__ import *
-from models.DynamicLSTM import DynamicLSTM
-from models.SelfAttention import SelfAttention
-from models.Highway import Highway
+from LSTM_KD.models.DynamicLSTM import DynamicLSTM
+from LSTM_KD.models.SelfAttention import SelfAttention
+from LSTM_KD.models.Highway import Highway
 class LSTMSelfAttention(BasicModule):
     def __init__(self, args):
         super().__init__()

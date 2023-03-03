@@ -1,6 +1,5 @@
 #coding=utf8
-from utils import *
-from models.LSTMSelfAttention import *
+from LSTM_KD.utils import *
 from mydatasets import *
 import sys
 def validate(model, val_iter, args):
