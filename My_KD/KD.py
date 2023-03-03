@@ -88,7 +88,7 @@ for epoch in range(epochs):
             num_sample +=preditions.size(0)
         acc = (num_correct/num_sample).item()
     model.train()
-    print('Epoch:{}\t Accuracy:{:4f}'.format(epoch+1,acc))
+    print('Epoch:{}\t Accuracy:{:.4f}'.format(epoch+1,acc))
 
 teacher_model = model
 
@@ -202,7 +202,7 @@ for epoch in range(epochs):
             num_sample += preditions.size(0)
         acc = (num_correct/num_sample).item()
     model.train()
-    print("Epoch:{}\t Accuracy:{.4f}".format(epoch+1,acc))
+    print("Epoch:{}\t Accuracy:{:.4f}".format(epoch+1,acc))
 
 
 
