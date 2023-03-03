@@ -63,32 +63,32 @@ summary(model)
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(),lr = 1e-4)
 epochs = 6
-for epoch in range(epochs):
-    model.train()
-
-    for data,targets in tqdm(train_loader):
-        data = data.to(device)
-        targets = targets.to(device)
-        preds = model(data)
-        loss = criterion(preds,targets)
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-
-    model.eval()
-    num_correct = 0
-    num_sample = 0
-    with torch.no_grad():
-        for x, y  in test_loader:
-            x= x.to(device)
-            y = y.to(device)
-            preds = model(x)
-            preditions = preds.max(1).indices
-            num_correct +=(preditions==y).sum()
-            num_sample +=preditions.size(0)
-            acc = (num_correct/num_sample).item()
-    model.train()
-    print('Epoch:{}\t Accuracy:{:4f}'.format(epoch+1,acc))
+# for epoch in range(epochs):
+#     model.train()
+#
+#     for data,targets in tqdm(train_loader):
+#         data = data.to(device)
+#         targets = targets.to(device)
+#         preds = model(data)
+#         loss = criterion(preds,targets)
+#         optimizer.zero_grad()
+#         loss.backward()
+#         optimizer.step()
+#
+#     model.eval()
+#     num_correct = 0
+#     num_sample = 0
+#     with torch.no_grad():
+#         for x, y  in test_loader:
+#             x= x.to(device)
+#             y = y.to(device)
+#             preds = model(x)
+#             preditions = preds.max(1).indices
+#             num_correct +=(preditions==y).sum()
+#             num_sample +=preditions.size(0)
+#             acc = (num_correct/num_sample).item()
+#     model.train()
+#     print('Epoch:{}\t Accuracy:{:4f}'.format(epoch+1,acc))
 
 teacher_model = model
 
@@ -106,10 +106,10 @@ class StudentModel(nn.Module):
         x= self.fc1(x)
         x= self.relu(x)
 
-        x = self.fc1(x)
+        x = self.fc2(x)
         x = self.relu(x)
 
-        x = self.fc1(x)
+        x = self.fc3(x)
         return x
 # 单独训练学生模型，并给出结果
 model = StudentModel()
@@ -143,7 +143,7 @@ for epoch in range(epochs):
             num_sample +=preditions.size(0)
         acc = (num_correct/num_sample).item()
     model.train()
-    print("Epoch:{}\t Accuracy:{:.4f}".format((epoch+1,acc)))
+    print("Epoch:{}\t Accuracy:{:.4f}".format(epoch+1,acc))
 
 student_model_scartch = model
 
