@@ -86,7 +86,7 @@ for epoch in range(epochs):
             preditions = preds.max(1).indices
             num_correct +=(preditions==y).sum()
             num_sample +=preditions.size(0)
-            acc = (num_correct/num_sample).item()
+        acc = (num_correct/num_sample).item()
     model.train()
     print('Epoch:{}\t Accuracy:{:4f}'.format(epoch+1,acc))
 
@@ -196,7 +196,7 @@ for epoch in range(epochs):
         for data ,targets in test_loader:
             data = data.to(device)
             targets = targets.to(device)
-            preds = model(x)
+            preds = model(data)
             preditions =preds.max(1).indices
             num_correct += (preditions==targets).sum()
             num_sample += preditions.size(0)
